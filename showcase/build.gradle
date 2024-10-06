@@ -31,8 +31,11 @@ publishing {
             from components.release // Make sure you're using the correct component
             groupId = 'com.github.bharanidharan-augment' // Your group ID
             artifactId = 'ShowCase' // Your artifact ID
-            version = '1.2.1' // Your version
+            version = '1.2.3' // Your version
         }
+    }
+     repositories {
+        mavenLocal()
     }
 }
 
