@@ -25,6 +25,28 @@ android {
     }
 }
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.bharanidharan-augment'
+            artifactId = 'showcase'
+            version = '1.2.7'
+
+            afterEvaluate {
+                // Safely access components based on the variant (release in this case)
+                if (components.findByName("release") != null) {
+                    from components["release"]
+                } else if (components.findByName("android") != null) {
+                    from components["android"]
+                }
+            }
+        }
+    }
+    repositories {
+        mavenLocal() // To publish locally
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
