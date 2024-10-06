@@ -1,8 +1,5 @@
 package com.bharanidharan.showcase;
 
-/**
- * Created by Hendry on 3/30/2017.
- */
 
 public enum ShowCaseContentPosition {
     UNDEFINED (0),
