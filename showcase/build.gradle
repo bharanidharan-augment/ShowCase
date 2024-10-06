@@ -1,4 +1,8 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish' // Add this line if not present
+}
+
 
 android {
     compileSdkVersion 25
@@ -17,6 +21,17 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.release // Make sure you're using the correct component
+            groupId = 'com.github.bharanidharan-augment' // Your group ID
+            artifactId = 'ShowCase' // Your artifact ID
+            version = '1.2.1' // Your version
         }
     }
 }
